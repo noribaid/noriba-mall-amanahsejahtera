@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - Amanah Sejahtera</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0D6B5C;
+            --primary-light: #E8F5F2;
+            --primary-dark: #0A5349;
+            --accent: #1A8C7A;
+            --text-dark: #1A2A2A;
+            --text-muted: #5A6B6B;
+            --white: #ffffff;
+            --bg-light: #F7FAFA;
+            --bg-gradient: linear-gradient(135deg, #E8F5F2 0%, #F0FAF8 50%, #E5F2EF 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.7;
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+
+        h3 {
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
+        }
+
+        p {
+            color: var(--text-muted);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--white);
+            border: 1px solid rgba(13, 107, 92, 0.2);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.7;
+                transform: scale(1.2);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--bg-gradient);
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(13, 107, 92, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            margin-top: 24px;
+            max-width: 480px;
+        }
+
+        .hero-values {
+            display: flex;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .value-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .value-tag svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Phone Mockup CSS */
+        .phone-mockup {
+            width: 280px;
+            height: 560px;
+            background: linear-gradient(160deg, #1a4a44 0%, #0d3530 50%, #0a2925 100%);
+            border-radius: 45px;
+            padding: 12px;
+            position: relative;
+            box-shadow:
+                0 40px 80px rgba(13, 107, 92, 0.3),
+                0 0 0 2px #2a5a54,
+                inset 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #153832 0%, #0f2a26 100%);
+            border-radius: 35px;
+            position: relative;
+            overflow: hidden;
+            padding: 20px 16px;
+        }
+
+        /* Dynamic Island / Notch */
+        .phone-notch {
+            width: 90px;
+            height: 28px;
+            background: #0a1f1c;
+            border-radius: 20px;
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        /* Card in Phone */
+        .phone-card {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #4a9e91 0%, #2d7a6e 50%, #1a5c52 100%);
+            border-radius: 16px;
+            padding: 16px;
+            margin-top: 50px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .phone-card::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 16px;
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+        }
+
+        .card-brand {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 10px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 1px;
+        }
+
+        .card-number {
+            display: flex;
+            gap: 12px;
+            margin-top: 32px;
+            font-size: 11px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 2px;
+        }
+
+        .card-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 16px;
+        }
+
+        .card-id {
+            font-size: 20px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .card-info {
+            display: flex;
+            gap: 24px;
+        }
+
+        .card-info-item {
+            text-align: right;
+        }
+
+        .card-info-item .label {
+            font-size: 7px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .card-info-item .value {
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .card-info-item .value.highlight {
+            color: #7dd3c5;
+        }
+
+        /* Menu Items */
+        .phone-menu {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .menu-item {
+            width: 100%;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .menu-item:nth-child(1) {
+            width: 100%;
+        }
+
+        .menu-item:nth-child(2) {
+            width: 100%;
+        }
+
+        .menu-item:nth-child(3) {
+            width: 100%;
+        }
+
+        .menu-item:nth-child(4) {
+            width: 100%;
+        }
+
+        /* Workflow Section */
+        .workflow {
+            background: linear-gradient(180deg, #0D3D35 0%, #0A2E28 100%);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .workflow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(26, 140, 122, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(26, 140, 122, 0.1) 0%, transparent 50%);
+        }
+
+        .workflow .section-label {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .workflow h2 {
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .workflow-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            position: relative;
+        }
+
+        .workflow-steps::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 15%;
+            right: 15%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(26, 140, 122, 0.4), rgba(26, 140, 122, 0.4), transparent);
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border: 3px solid rgba(26, 140, 122, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin: 0 auto 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step h3 {
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .step p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Why Us Section */
+        .why-us {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .why-us h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .why-us>.container>p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1px solid #E5EDED;
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(13, 107, 92, 0.1);
+        }
+
+        .feature-card.featured {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            grid-column: span 1;
+        }
+
+        .feature-card.featured h3,
+        .feature-card.featured p {
+            color: var(--white);
+        }
+
+        .feature-card.featured p {
+            opacity: 0.9;
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--primary);
+        }
+
+        .feature-card.featured .feature-icon {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-card.featured .feature-icon svg {
+            color: var(--white);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .feature-wide {
+            grid-column: span 1;
+        }
+
+        /* Our Story Section */
+        .our-story {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .story-content h2 {
+            margin-bottom: 32px;
+        }
+
+        .story-content p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .story-content p strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .story-visual {
+            position: relative;
+        }
+
+        /* Illustration Card CSS */
+        .story-illustration {
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(145deg, #d4ede8 0%, #b8e0d8 50%, #c5e8e0 100%);
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(13, 107, 92, 0.15);
+        }
+
+        /* Polka dots pattern */
+        .story-illustration::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle, rgba(13, 107, 92, 0.12) 2px, transparent 2px);
+            background-size: 20px 20px;
+            z-index: 1;
+        }
+
+        /* Blur circles */
+        .blur-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: 2;
+        }
+
+        .blur-circle-1 {
+            width: 180px;
+            height: 180px;
+            background: rgba(13, 107, 92, 0.35);
+            top: 50%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+        }
+
+        .blur-circle-2 {
+            width: 150px;
+            height: 150px;
+            background: rgba(13, 107, 92, 0.3);
+            top: 50%;
+            left: 55%;
+            transform: translate(-50%, -50%);
+        }
+
+        .blur-circle-3 {
+            width: 120px;
+            height: 120px;
+            background: rgba(13, 107, 92, 0.25);
+            top: 50%;
+            left: 75%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Border accent */
+        .story-illustration::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, rgba(13, 107, 92, 0.3), transparent);
+            border-radius: 2px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(13, 107, 92, 0.1);
+            padding: 16px 0;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: var(--text-dark);
+        }
+
+        .navbar-brand img {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .navbar-links a:hover {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        @media (max-width: 600px) {
+            .navbar-links {
+                gap: 4px;
+            }
+
+            .navbar-links a {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--white);
+            padding: 80px 0 40px;
+            border-top: 1px solid #E5EDED;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 2fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        /* Footer Logo CSS */
+        .footer-logo {
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-logo::before {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 28px;
+            background: linear-gradient(180deg, #E67E22 0%, #D35400 100%);
+            border-radius: 0 0 10px 10px;
+            top: 6px;
+            left: 10px;
+            transform: skewX(-8deg);
+        }
+
+        .footer-logo::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 22px;
+            background: linear-gradient(180deg, #27AE60 0%, #1E8449 100%);
+            border-radius: 2px;
+            top: 6px;
+            right: 12px;
+            transform: skewX(-5deg);
+        }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-contact h4 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid #E5EDED;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--white);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid #E5EDED;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-values {
+                justify-content: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .workflow-steps {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .workflow-steps::before {
+                display: none;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-values {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="tentang-kami.html" class="navbar-brand">
+                <img src="favicon.png" alt="Amanah Sejahtera Logo">
+                Amanah Sejahtera
+            </a>
+            <ul class="navbar-links">
+                <li><a href="ketentuan.html">Ketentuan</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">Adil, Transparan, Fleksibel</div>
+                <h1>
+                    Belanja Barang,<br>
+                    Bayar Tempo<br>
+                    <span>Adil</span>
+                </h1>
+                <p>Amanah Sejahtera menyediakan beragam kategori barang dengan pilihan bayar tunai atau tempo. Cara cerdas miliki
+                    barang impian.</p>
+                <div class="hero-values">
+                    <div class="value-tag">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        Tanpa Bunga
+                    </div>
+                    <div class="value-tag">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        Tanpa Denda
+                    </div>
+                    <div class="value-tag">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        100% Syariah
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="phone-notch"></div>
+                        <div class="phone-card">
+                            <span class="card-brand">AMANAH SEJAHTERA</span>
+                            <div class="card-number">
+                                <span>****</span>
+                                <span>****</span>
+                                <span>****</span>
+                            </div>
+                            <div class="card-details">
+                                <span class="card-id">8821</span>
+                                <div class="card-info">
+                                    <div class="card-info-item">
+                                        <div class="label">LIMIT</div>
+                                        <div class="value highlight">Rp 5.000.000</div>
+                                    </div>
+                                    <div class="card-info-item">
+                                        <div class="label">STATUS</div>
+                                        <div class="value">Active</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="phone-menu">
+                            <div class="menu-item"></div>
+                            <div class="menu-item"></div>
+                            <div class="menu-item"></div>
+                            <div class="menu-item"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="workflow">
+        <div class="container">
+            <p class="section-label">Workflow</p>
+            <h2>Cara Kerja Amanah Sejahtera</h2>
+            <div class="workflow-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Pilih Barang</h3>
+                    <p>Pilih dari katalog atau bisa request barang sesuai kebutuhan</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Kesepakatan Jual Beli</h3>
+                    <p>Pilih bayar tunai atau cicilan dengan tenor 1, 3, 6, 9, 12 bulan, cek harga jual dan setujui
+                        kesepakatan digital tanpa ada yang disembunyikan.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Barang Dikirim</h3>
+                    <p>Amanah Sejahtera mengirimkan barang ke alamatmu dan tinggal bayar cicilan sesuai jatuh tempo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="why-us">
+        <div class="container">
+            <h2>Keunggulan Kami</h2>
+            <p>Di Amanah Sejahtera kami menggunakan kesepakatan jual beli dimana Amanah Sejahtera sebagai penjual yang memiliki barang bukan
+                hanya sekedar pemberi pinjaman atau penyalur. Hanya ada harga jual yang sudah disepakati di awal. Tidak
+                ada denda jika terdapat keterlambatan.</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Adil</h3>
+                    <p>Kamu hanya membayar harga jual yang disepakati sejak awal, tanpa denda dan tanpa perubahan harga.
+                    </p>
+                </div>
+
+                <div class="feature-card featured">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </div>
+                    <h3>Transparan</h3>
+                    <p>Semuanya jelas. Tidak ada harga atau kesepakatan tersembunyi.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 1l4 4-4 4"></path>
+                            <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                            <path d="M7 23l-4-4 4-4"></path>
+                            <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                        </svg>
+                    </div>
+                    <h3>Fleksibel</h3>
+                    <p>Bayar tunai atau tempo dengan batas belanja 20 juta dan tenor hingga 12 bulan. Telat bayar karena
+                        musibah? Cari solusinya bersama.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="our-story">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-content">
+                    <h2>Cerita Kami</h2>
+                    <p>Hari ini semakin banyak platform pinjaman yang jauh dari prinsip keadilan. Keuntungan mereka
+                        diambil tanpa menanggung risiko apa pun, sementara pengguna menanggung risiko atas kualitas
+                        barang, bunga, dan denda.</p>
+                    <p>Karena itu, Amanah Sejahtera hadir sebagai e-commerce yang menjual berbagai kategori barang dengan opsi
+                        bayar tunai atau tempo (cicilan) tanpa bunga dan denda.</p>
+                    <p>Amanah Sejahtera bukan platform pinjaman melainkan <strong>platform jual beli</strong>. Hanya ada harga
+                        jual yang disetujui bersama secara transparan.</p>
+                    <p>Dengan begitu semuanya terasa adil, transparan dan fleksibel. Tidak ada pihak yang hanya untung
+                        tanpa risiko serta cicilan bukan menjadi hal yang memberatkan. Memberikan alternatif belanja
+                        yang lebih sehat secara finansial.</p>
+                </div>
+                <div class="story-visual">
+                    <div class="story-illustration">
+                        <div class="blur-circle blur-circle-1"></div>
+                        <div class="blur-circle blur-circle-2"></div>
+                        <div class="blur-circle blur-circle-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>
+                        <img src="favicon.png" alt="Amanah Sejahtera Logo"
+                            style="width: 44px; height: 44px; border-radius: 10px;">
+                        Amanah Sejahtera
+                    </h3>
+                    <p>Platform jual beli barang tunai atau tempo yang adil, transparan dan fleksibel. Bagian dari
+                        ekosistem VisiCloud (PT Visi Rahmat Teknologi).</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Bantuan</h4>
+                    <ul>
+                        <li><a href="#">Cara Pakai</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Hubungi Kami</h4>
+                    <div class="contact-item">office@visicloud.id</div>
+                    <div class="contact-item">08123456789</div>
+                    <div class="contact-item">PONDOK WAGE INDAH II, Kelurahan Wage, Kec. Taman, Kab. Sidoarjo, Provinsi
+                        Jawa Timur</div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom"
+                style="border-top: 1px solid #E5EDED; padding-top: 32px; text-align: center; color: var(--text-muted); font-size: 0.875rem;">
+                <p>&copy; 2024 Amanah Sejahtera - PT Visi Rahmat Teknologi. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

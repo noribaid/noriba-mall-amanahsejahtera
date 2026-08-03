@@ -1,0 +1,34 @@
+VERSION_APP=1.3.0
+
+# Development
+#X_BP_KEY=e563176a-1f78-4b32-b95f-da5a7d055fb3
+#BASE_URL=https://dev-speedpay-api.visicloud.id
+#BASE_ASSET_URL=https://storage.googleapis.com/visicloud-development
+#SDK_URL=https://dev-speedpay-sdk.visicloud.id
+#GLAIR_URL=https://apis.bankplus.id/glair
+
+#IS_DEV=true
+
+
+#DSN_GLITCH=https://7d43c7ba28b4400783417677096e2e25@tracker.bankplus.id/5
+#ENVIRONTMENT_GLITCH=development
+
+
+# Production
+X_BP_KEY=e563176a-1f78-4b32-b95f-da5a7d055fb3
+BASE_URL=https://apis.speedpay.id
+BASE_ASSET_URL=https://storage.googleapis.com/speedpay
+SDK_URL=https://sdk.speedpay.id
+GLAIR_URL=https://apis.bankplus.id/glair
+
+IS_DEV=false
+
+
+DSN_GLITCH=https://7d43c7ba28b4400783417677096e2e25@tracker.bankplus.id/5
+ENVIRONTMENT_GLITCH=production
+
+#Branding
+BRANDING_NAME=Speedpay
+BRANDING_LOGIN_LOGO=assets/images/speedpay_logo_all_white.png
+WA_CS=08123456789
+WA_LINK=https://wa.link/an6nbe

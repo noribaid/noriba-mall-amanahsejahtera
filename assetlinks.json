@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "id.visi.speedpay",
+            "sha256_cert_fingerprints": [
+                "25:CB:4F:F6:E1:41:0D:80:A5:C7:76:70:54:E9:51:F2:71:BD:45:E3:C9:FA:C0:E0:3A:53:14:5B:F5:4C:63:03"
+            ]
+        }
+    }
+]

@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund Policy - Amanah Sejahtera</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0D6B5C;
+            --primary-light: #E8F5F2;
+            --primary-dark: #0A5349;
+            --accent: #1A8C7A;
+            --text-dark: #1A2A2A;
+            --text-muted: #5A6B6B;
+            --white: #ffffff;
+            --bg-light: #F7FAFA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.7;
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        p {
+            color: var(--text-muted);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(13, 107, 92, 0.1);
+            padding: 16px 0;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: var(--text-dark);
+        }
+
+        .navbar-brand img {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .navbar-links a:hover,
+        .navbar-links a.active {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        @media (max-width: 600px) {
+            .navbar-links {
+                gap: 4px;
+            }
+
+            .navbar-links a {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #E8F5F2 0%, #F0FAF8 50%, #E5F2EF 100%);
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(13, 107, 92, 0.1);
+        }
+
+        .page-header h1 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .page-header p {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 60px 0 80px;
+        }
+
+        .terms-layout {
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+        }
+
+        .terms-sidebar {
+            width: 280px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 100px;
+        }
+
+        .terms-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: var(--white);
+            border: 1px solid #E5EDED;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .terms-nav li {
+            border-bottom: 1px solid #E5EDED;
+        }
+
+        .terms-nav li:last-child {
+            border-bottom: none;
+        }
+
+        .terms-nav a {
+            display: block;
+            padding: 16px 20px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .terms-nav a:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .terms-nav a.active {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .terms-nav a.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary);
+            border-radius: 0 4px 4px 0;
+        }
+
+        .terms-content {
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card {
+            background: var(--white);
+            border: 1px solid #E5EDED;
+            border-radius: 20px;
+            padding: 48px;
+            max-width: 860px;
+        }
+
+        .content-card h1 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 20px;
+        }
+
+        .content-card h2 {
+            margin-top: 48px;
+        }
+
+        .content-card h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .content-card h3 {
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary-light);
+            margin-top: 32px;
+        }
+
+        .content-card p {
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .content-card hr {
+            margin: 40px 0;
+            border: none;
+            border-top: 1px solid #E5EDED;
+        }
+
+        .content-card ol {
+            padding-left: 24px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .content-card ol>li {
+            margin-bottom: 16px;
+            line-height: 1.8;
+            text-align: justify;
+            font-size: 0.95rem;
+            padding-left: 8px;
+        }
+
+        .content-card ol[type="a"] {
+            margin-top: 16px;
+            padding-left: 28px;
+        }
+
+        .content-card ol[type="a"] li {
+            margin-bottom: 12px;
+        }
+
+        .content-card table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.95rem;
+        }
+
+        .content-card table th,
+        .content-card table td {
+            border: 1px solid #D0DDDD;
+            padding: 12px 16px;
+            text-align: left;
+        }
+
+        .content-card table th {
+            background: var(--primary-light);
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .content-card table td {
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--white);
+            padding: 80px 0 40px;
+            border-top: 1px solid #E5EDED;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 2fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            font-size: 1rem;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .contact-item {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            border: 1px solid #E5EDED;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .social-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #E5EDED;
+            padding-top: 32px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .content-card {
+                padding: 28px 20px;
+            }
+
+            .terms-layout {
+                flex-direction: column;
+            }
+
+            .terms-sidebar {
+                width: 100%;
+                position: static;
+                margin-bottom: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="tentang-kami.html" class="navbar-brand">
+                <img src="favicon.png" alt="Amanah Sejahtera Logo">
+                Amanah Sejahtera
+            </a>
+            <ul class="navbar-links">
+                <li><a href="ketentuan.html">Ketentuan</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Ketentuan</h1>
+            <p></p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="content-section">
+        <div class="container">
+            <div class="terms-layout">
+                <aside class="terms-sidebar">
+                    <ul class="terms-nav">
+                        <li><a href="#terms-syarat" class="active" onclick="showContent(event, 'terms-syarat')">Syarat &
+                                Ketentuan</a></li>
+                        <li><a href="#terms-refund" onclick="showContent(event, 'terms-refund')">Kebijakan Refund</a>
+                        </li>
+                        <li><a href="#terms-delivery" onclick="showContent(event, 'terms-delivery')">Kebijakan
+                                Pengiriman</a></li>
+                    </ul>
+                </aside>
+                <div class="terms-content">
+                    <div id="terms-syarat" class="content-card tab-content active">
+                        <h1 id="kebijakan-pengembalian-produk-dan-dana-refund-policy-noriba">
+                            Pendahuluan
+                        </h1>
+                        <p>Selamat datang di Aplikasi AMANAH SEJAHTERA, suatu aplikasi platform perdagangan yang memfasilitasi
+                            kegiatan jual beli secara online antara AMANAH SEJAHTERA sebagai Penjual dan Anda sebagai Pengguna
+                            aplikasi.</p>
+                        <p>Syarat dan Ketentuan Penggunaan (S&K) ini mengatur seluruh akses,
+                            pendaftaran, dan penggunaan Aplikasi AMANAH SEJAHTERA beserta seluruh layanan, fitur, konten, dan
+                            produk yang tersedia di dalamnya (Layanan), yang dikelola oleh PT Visi Rahmat
+                            Teknologi (AMANAH SEJAHTERA, Kami, Penjual).</p>
+                        <p>Dengan mendaftar, mengakses, atau menggunakan Layanan, Anda (Pengguna,
+                            Anda, Pembeli) menyatakan telah membaca, memahami, menyetujui, dan
+                            terikat secara hukum terhadap seluruh ketentuan dalam S&K ini, serta Kebijakan Privasi
+                            AMANAH SEJAHTERA yang merupakan bagian yang tidak terpisahkan.</p>
+                        <p>APABILA ANDA TIDAK SETUJU DENGAN SEBAGIAN ATAU SELURUH ISI S&K INI, MAKA ANDA TIDAK
+                            DIPERKENANKAN MENGGUNAKAN LAYANAN.</p>
+                        <p>S&K ini dapat diubah atau diperbaharui sewaktu-waktu. AMANAH SEJAHTERA akan memberitahukan
+                            perubahan material melalui email terdaftar atau pemberitahuan dalam Aplikasi. Dengan tetap
+                            mengakses dan menggunakan Layanan setelah perubahan, Anda dianggap menyetujui perubahan
+                            tersebut.</p>
+                        <p>BAGIAN I – DEFINISI</p>
+                        <p>1.1 Aplikasi AMANAH SEJAHTERA adalah platform elektronik berbasis aplikasi mobile yang
+                            dikelola oleh AMANAH SEJAHTERA, yang berfungsi sebagai sarana untuk menawarkan, memasarkan, dan
+                            menjual Produk secara langsung oleh AMANAH SEJAHTERA kepada Pembeli.</p>
+                        <p>1.2 Akun adalah akun pribadi Pengguna yang dibuat dan dikelola setelah proses
+                            registrasi dan verifikasi di Aplikasi AMANAH SEJAHTERA.</p>
+                        <p>1.3 Data Pribadi adalah setiap data Pengguna yang teridentifikasi atau dapat
+                            diidentifikasi, sebagaimana diatur lebih lanjut dalam Kebijakan Privasi AMANAH SEJAHTERA.</p>
+                        <p>1.4 Hukum yang Berlaku adalah seluruh peraturan perundang-undangan yang berlaku
+                            di Republik Indonesia.</p>
+                        <p>1.5 Kebijakan Privasi adalah kebijakan mengenai pengelolaan Data Pribadi yang
+                            dikeluarkan oleh AMANAH SEJAHTERA, sebagaimana dapat diubah dari waktu ke waktu.</p>
+                        <p>1.6 AMANAH SEJAHTERA, Kami, Penjual adalah AMANAH SEJAHTERA Indonesia, yang
+                            bertindak sebagai penjual tunggal dan langsung atas seluruh Produk yang ditawarkan di
+                            Aplikasi.</p>
+                        <p>1.7 Pembayaran Cicilan atau Fasilitas Cicilan adalah metode
+                            pembayaran yang disediakan secara langsung oleh AMANAH SEJAHTERA sebagai Penjual, di mana total harga
+                            Produk dapat dibayar oleh Pembeli secara bertahap dalam jangka waktu dan besaran angsuran
+                            tertentu yang telah disepakati.</p>
+                        <p>1.8 Pembeli, Anda, Pengguna adalah individu yang telah
+                            mendaftar Akun dan melakukan atau berniat melakukan pembelian Produk.</p>
+                        <p>1.9 Produk adalah seluruh layanan, produk dan barang yang ditawarkan dan dijual
+                            oleh AMANAH SEJAHTERA melalui Aplikasi AMANAH SEJAHTERA.</p>
+                        <p>1.10 Rekening AMANAH SEJAHTERA adalah rekening bank resmi milik AMANAH SEJAHTERA yang digunakan untuk
+                            proses transaksi jual beli.</p>
+                        <p>1.11 Transaksi atau Perjanjian Jual Beli adalah perjanjian yang
+                            mengikat antara Pembeli dan AMANAH SEJAHTERA yang terbentuk pada saat Pembeli menyelesaikan proses
+                            Checkout.</p>
+                        <p>1.12 Checkout adalah tindakan final Pembeli dalam proses pemesanan, dengan
+                            mengklik tombol Beli, Bayar, Setuju, atau sejenisnya,
+                            setelah menyetujui ringkasan pesanan, harga, metode pembayaran, dan syarat-syarat terkait.
+                        </p>
+                        <p>BAGIAN II – REGISTRASI, AKUN, DAN KELAYAKAN</p>
+                        <p>2.1 Persyaratan Umum. Layanan hanya tersedia bagi individu yang telah berusia minimal 18
+                            (delapan belas) tahun atau telah menikah, cakap hukum, dan memiliki kapasitas untuk
+                            mengikatkan diri dalam perjanjian yang sah.</p>
+                        <p>2.2 Keakuratan Data. Anda bertanggung jawab penuh untuk memastikan bahwa seluruh informasi
+                            dan Data Pribadi yang diberikan selama proses registrasi dan penggunaan Layanan adalah
+                            benar, akurat, lengkap, dan terkini. AMANAH SEJAHTERA berhak untuk melakukan verifikasi atas data
+                            tersebut.</p>
+                        <p>2.3 Kerahasiaan Akun. Anda bertanggung jawab sepenuhnya untuk menjaga kerahasiaan kredensial
+                            Akun. Segala aktivitas yang terjadi dalam Akun Anda dianggap dilakukan oleh Anda dan menjadi
+                            tanggung jawab Anda sepenuhnya.</p>
+                        <p>2.4 Pembatasan Akun. AMANAH SEJAHTERA berhak secara sepihak, kapan saja dan tanpa pemberitahuan
+                            terlebih dahulu, untuk membekukan, menangguhkan, atau menutup Akun Anda jika terdapat dugaan
+                            pelanggaran terhadap S&K ini, aktivitas mencurigakan, penipuan, atau atas pertimbangan
+                            hukum dan keamanan lainnya.</p>
+                        <p>BAGIAN III – PRODUK, HARGA, DAN PEMBENTUKAN PERJANJIAN</p>
+                        <p>3.1 Informasi Produk. AMANAH SEJAHTERA berusaha menyajikan informasi Produk (gambar, deskripsi,
+                            spesifikasi, harga) seakurat mungkin. Namun, AMANAH SEJAHTERA tidak menjamin bahwa informasi tersebut
+                            bebas dari kesalahan, lengkap, atau selalu mutakhir.</p>
+                        <p>3.2 Warna dan Tampilan. Pembeli mengakui bahwa warna sebenarnya dari Produk sebagaimana
+                            terlihat di Aplikasi AMANAH SEJAHTERA tergantung pada layar perangkat masing-masing. AMANAH SEJAHTERA telah
+                            melakukan upaya terbaik untuk memastikan keakuratan tampilan, namun tidak dapat menjamin
+                            kesesuaian penuh dengan warna asli.</p>
+                        <p>3.3 Harga. Harga yang tercantum adalah harga yang ditetapkan oleh AMANAH SEJAHTERA sebagai Penjual.
+                            Harga dapat berubah sewaktu-waktu tanpa pemberitahuan, namun harga yang berlaku adalah harga
+                            pada saat Checkout. Semua harga dalam mata uang Rupiah.</p>
+                        <p>3.4 Kesalahan Harga. AMANAH SEJAHTERA berhak untuk membatalkan pesanan jika terjadi kesalahan harga
+                            yang nyata (misalnya, kesalahan sistem) dan akan mengembalikan dana yang telah dibayarkan.
+                        </p>
+                        <p>3.5 Pembentukan Perjanjian. Suatu Perjanjian Jual Beli yang mengikat secara hukum terbentuk
+                            pada saat:</p>
+                        <ol>
+                            <li>PEMBELI menyelesaikan proses Checkout untuk suatu Produk; dan/atau </li>
+                            <li>Pembayaran (atau cicilan pertama untuk metode cicilan) berhasil diproses dan diterima
+                                oleh AMANAH SEJAHTERA.</li>
+                        </ol>
+                        <p>Konfirmasi pesanan yang dikirimkan AMANAH SEJAHTERA merupakan bukti penerimaan dan terjadinya
+                            perjanjian.</p>
+                        <p>3.6 Persetujuan Elektronik. Dengan melakukan Checkout, PEMBELI menyatakan persetujuan secara
+                            elektronik yang merupakan TANDA TANGAN ELEKTRONIK yang sah dan mengikat secara hukum, serta
+                            memiliki kekuatan hukum yang sama dengan tanda tangan basah/konvensional sesuai dengan
+                            ketentuan peraturan perundang-undangan yang berlaku di Republik Indonesia.</p>
+                        <p>BAGIAN IV – PEMBAYARAN</p>
+                        <p>4.1 Metode Pembayaran. Pembayaran dapat dilakukan secara:</p>
+                        <ol>
+                            <li>Lunas (Full Payment) , yaitu pembayaran sebesar Total Harga J ual sesuai instruksi
+                                AMANAH SEJAHTERA. </li>
+                            <li>Cicilan (Installment) , yaitu metode pembayaran yang disediakan langsung oleh AMANAH SEJAHTERA, di
+                                mana Pembeli membayar sebagian harga di muka ( jika ada) dan sisanya secara bertahap.
+                            </li>
+                        </ol>
+                        <p>4.2 Kewajiban Pembayaran. Pembeli wajib melakukan pembayaran sesuai dengan metode yang
+                            dipilih dan memastikan dana mencukupi. Keterlambatan atau kegagalan pembayaran menjadi
+                            tanggung jawab Pembeli.</p>
+                        <p>4.3 Pembayaran Resmi. Semua pembayaran wajib dilakukan melalui metode resmi yang ditentukan
+                            oleh AMANAH SEJAHTERA (seperti transfer ke Rekening AMANAH SEJAHTERA, Virtual Account, atau metode pembayaran
+                            digital lainnya yang terintegrasi dalam Aplikasi). Setiap pembayaran yang dilakukan di luar
+                            metode resmi (termasuk transfer ke rekening pribadi, pesan pribadi, atau korespondensi via
+                            telepon dengan nomor pribadi) tidak diakui, bukan tanggung jawab AMANAH SEJAHTERA, dan segala
+                            risikonya ditanggung Pembeli secara pribadi.</p>
+                        <p>4.4 Bukti Pembayaran. Pembeli menyetujui untuk tidak mengungkapkan atau menyerahkan bukti
+                            pembayaran kepada pihak lain selain AMANAH SEJAHTERA. Kerugian akibat pelanggaran ketentuan ini
+                            menjadi tanggung jawab Pembeli.</p>
+                        <p>4.5 Keterlambatan Bank. Masalah keterlambatan proses pembayaran dan biaya tambahan yang
+                            disebabkan oleh perbedaan bank atau sistem perbankan adalah tanggung jawab Pembeli.</p>
+                        <p>4.6 Penolakan Pembayaran. AMANAH SEJAHTERA memiliki hak dan kewenangan untuk menolak pembayaran dengan
+                            alasan apapun (termasuk indikasi penipuan atau pelanggaran) tanpa pemberitahuan terlebih
+                            dahulu.</p>
+                        <p>4.7 Pembulatan Pembayaran. Pembeli dengan ini menyetujui bahwa seluruh pembayaran (termasuk
+                            angsuran, denda, dan biaya lainnya) akan dilakukan dengan pembulatan ke satuan Rupiah nilai
+                            atas terdekat. Untuk menghindari keraguan, satuan Rupiah nilai atas terdekat adalah
+                            kelipatan Rp100,- (seratus Rupiah) . Pembulatan ini dilakukan untuk kemudahan administrasi
+                            dan sistem.</p>
+                        <p>4.8 Pembeli memahami dan menyetujui bahwa setiap pembayaran melalui metode pembayaran resmi
+                            yang disediakan oleh AMANAH SEJAHTERA dapat dikenakan biaya layanan pembayaran, termasuk namun tidak
+                            terbatas pada biaya payment gateway, virtual account, QRIS, e-wallet, kartu debit/kredit,
+                            biaya administrasi bank, biaya transfer antarbank, biaya switching, dan/atau biaya lain
+                            sejenisnya yang dikenakan oleh bank, penyedia jasa pembayaran, payment gateway, maupun pihak
+                            ketiga lainnya.</p>
+                        <p>4.9 Seluruh Biaya Layanan Pembayaran menjadi beban Pembeli sepenuhnya, tidak mengurangi
+                            jumlah harga Produk, uang muka, angsuran, denda, biaya penagihan, atau kewajiban lain yang
+                            wajib dibayarkan kepada AMANAH SEJAHTERA, serta bersifat final dan tidak dapat dikembalikan kepada
+                            Pembeli, kecuali diwajibkan lain oleh peraturan perundang-undangan yang berlaku.</p>
+                        <p>BAGIAN V – KETENTUAN KHUSUS PEMBAYARAN CICILAN</p>
+                        <p>5.1 Sifat Fasilitas. Pembayaran Cicilan adalah fasilitas pembayaran yang diberikan secara
+                            langsung oleh AMANAH SEJAHTERA sebagai Penjual, dan bukan merupakan produk pembiayaan, pinjaman, atau
+                            layanan keuangan dari pihak ketiga. </p>
+                        <p>5.2 Persyaratan dan Persetujuan. Untuk menggunakan Fasilitas Cicilan, Pembeli harus:</p>
+                        <ol>
+                            <li>Memiliki Akun yang telah diverifikasi identitasnya. </li>
+                            <li>Menyetujui untuk menjalani proses penilaian kelayakan (eligibility assessment) oleh
+                                AMANAH SEJAHTERA, yang dapat mencakup verifikasi data tambahan. </li>
+                            <li>Secara tegas menyetujui semua syarat cicilan (jumlah angsuran, tenor, biaya, tanggal
+                                jatuh tempo, denda) yang ditampilkan secara jelas sebelum Checkout.</li>
+                        </ol>
+                        <p>5.3 Diskresi Mutlak AMANAH SEJAHTERA. Pemberian, penolakan, penghentian, atau perubahan limit dan
+                            syarat Fasilitas Cicilan (termasuk tenor dan besaran angsuran) merupakan hak dan diskresi
+                            mutlak AMANAH SEJAHTERA. Keputusan AMANAH SEJAHTERA bersifat final dan mengikat.</p>
+                        <p>5.4 Uang Muka (Down Payment). Jika dipersyaratkan, Pembeli wajib membayar uang muka dalam
+                            waktu yang ditentukan. Kegagalan membayar uang muka akan mengakibatkan pembatalan pesanan
+                            secara otomatis.</p>
+                        <p>5.5 Verifikasi Data. Dengan mengajukan penggunaan Fasilitas Cicilan, Pembeli memberikan kuasa
+                            penuh dan persetujuan tegas kepada AMANAH SEJAHTERA untuk:</p>
+                        <ol>
+                            <li>Mengumpulkan, menggunakan, menyimpan, dan memproses Data Pribadi untuk tujuan verifikasi
+                                identitas dan penilaian kelayakan. </li>
+                            <li>Mengalihkan Data Pribadi kepada penyedia jasa verifikasi pihak ketiga yang bekerja sama
+                                dengan AMANAH SEJAHTERA. </li>
+                            <li>Melakukan pengecekan terhadap perangkat, lokasi, dan data teknis lainnya dari gadget
+                                yang digunakan untuk mengakses Aplikasi, guna tujuan pencegahan penipuan dan penilaian
+                                risiko.</li>
+                        </ol>
+                        <p>5.6 Akibat Data Palsu. Jika ditemukan bahwa data yang diberikan untuk mendapatkan Fasilitas
+                            Cicilan adalah tidak akurat, palsu, menyesatkan, atau dipalsukan, AMANAH SEJAHTERA berhak untuk:</p>
+                        <ol>
+                            <li>Segera membatalkan Fasilitas Cicilan dan seluruh Transaksi yang terkait. </li>
+                            <li>Menagih seluruh sisa kewajiban pembayaran sebagai utang yang jatuh tempo seketika dan
+                                wajib dibayar lunas seketika. </li>
+                            <li>Memblokir permanen Akun Pembeli dan melaporkan kepada pihak berwajib.</li>
+                        </ol>
+                        <p>5.7 Kewajiban Pembayaran Cicilan. Pembeli wajib membayar setiap angsuran tepat waktu pada
+                            atau sebelum Tanggal Jatuh Tempo yang telah disepakati.</p>
+                        <p>5.8 Biaya Penagihan. Dalam hal terjadi keterlambatan atau wanprestasi, seluruh biaya
+                            penagihan yang timbul, termasuk namun tidak terbatas pada biaya pengacara, biaya jasa pihak
+                            ketiga (debt collector), biaya pengiriman surat peringatan, dan biaya pengadilan, menjadi
+                            tanggung jawab dan wajib dibayar lunas oleh Pembeli.</p>
+                        <p>5.9 Akumulasi Tunggakan. Catatan dan administrasi yang tersimpan dalam sistem AMANAH SEJAHTERA
+                            merupakan BUKTI YANG SAH, MENGIKAT, DAN FINAL mengenai seluruh saldo kewajiban dan denda
+                            Pembeli.</p>
+                        <p>5.10 Pelaporan Data. AMANAH SEJAHTERA berhak untuk melaporkan data kelancaran atau kemacetan pembayaran
+                            Pembeli kepada sistem informasi kredit, biro kredit, atau lembaga pengelola data transaksi
+                            yang berwenang, sesuai dengan Hukum yang Berlaku.</p>
+                        <p>5.11 Sifat Fasilitas Cicilan. Pembeli memahami dan menyetujui bahwa Batas Maksimum Cicilan
+                            atau limit yang diberikan oleh AMANAH SEJAHTERA merupakan fasilitas pembayaran (paylater) untuk
+                            pembelian Produk, dan BUKAN merupakan produk uang elektronik, simpanan, atau tabungan dalam
+                            bentuk apapun. Fasilitas ini hanya dapat digunakan untuk transaksi pembelian Produk di
+                            Aplikasi AMANAH SEJAHTERA dan tidak dapat dicairkan dalam bentuk uang tunai.</p>
+                        <p>BAGIAN VI – PENGIRIMAN</p>
+                        <p>6.1 Penyedia Jasa. AMANAH SEJAHTERA akan memfasilitasi pengiriman Produk melalui jasa perusahaan
+                            ekspedisi pilihannya.</p>
+                        <p>6.2 Alamat Pengiriman. Pengiriman hanya dapat dilakukan ke alamat yang dimasukkan Pembeli
+                            saat pemesanan. Kegagalan, keterlambatan, atau hambatan lain akibat kesalahan alamat menjadi
+                            tanggung jawab Pembeli.</p>
+                        <p>6.3 Penerimaan Produk. Produk hanya dapat diterima oleh Pembeli atau pihak yang dikuasakan
+                            secara sah, dengan menunjukkan KTP asli atau surat kuasa bermaterai cukup beserta fotokopi
+                            KTP Pembeli.</p>
+                        <p>6.4 Estimasi Waktu. Estimasi waktu pengiriman bersifat informatif. AMANAH SEJAHTERA tidak menjamin
+                            keakuratan data tersebut karena hal-hal di luar kendali AMANAH SEJAHTERA (seperti keterlambatan kurir,
+                            bencana alam, dll.).</p>
+                        <p>6.5 Pemeriksaan dan Konfirmasi. Pembeli wajib memeriksa kondisi Produk saat diterima. Jika
+                            ada kerusakan fisik atau ketidaksesuaian yang jelas, Pembeli harus segera menolak penerimaan
+                            dan membuat catatan bersama kurir. Pembeli wajib melakukan konfirmasi penerimaan Produk
+                            melalui Aplikasi selambatnya 5 (lima) hari setelah status pengiriman Telah
+                            Dikirim. Jika tidak ada konfirmasi atau klaim dalam jangka waktu tersebut, Produk
+                            dianggap telah diterima dalam kondisi baik oleh Pembeli, dan Pembeli melepaskan hak untuk
+                            mengajukan klaim atas kondisi fisik Produk di kemudian hari.</p>
+                        <p>BAGIAN VII – PENGEMBALIAN PRODUK (RETUR)</p>
+                        <p>7.1 Jangka Waktu Pengajuan. Pembeli dapat mengajukan permohonan pengembalian Produk dalam
+                            waktu 3 (tiga) hari kalender setelah konfirmasi penerimaan Produk, disertai alasan dan bukti
+                            pendukung.</p>
+                        <p>7.2 Alasan Pengembalian. Pengembalian hanya dapat diajukan dengan alasan:</p>
+                        <ol>
+                            <li>Kesalahan pengiriman Produk oleh AMANAH SEJAHTERA (jenis, varian, warna tidak sesuai pesanan);
+                                dan/atau </li>
+                            <li>Produk yang dikirim cacat/rusak dan tidak sesuai dengan deskripsi (kerusakan fungsional,
+                                bukan kerusakan fisik akibat pengiriman yang sudah harus ditolak di muka).</li>
+                        </ol>
+                        <p>7.3 Larangan Pengembalian. Pengembalian TIDAK DAPAT diajukan atas dasar:</p>
+                        <ol>
+                            <li>Pembeli berubah pikiran; </li>
+                            <li>Produk tidak sesuai harapan (misal: ukuran tidak pas, warna tidak sesuai ekspektasi,
+                                model tidak cocok); atau </li>
+                            <li>Alasan subjektif lainnya.</li>
+                        </ol>
+                        <p>7.4 Syarat Pengembalian. Produk yang diajukan pengembalian harus memenuhi syarat:</p>
+                        <ol>
+                            <li>Disertai video unboxing tanpa jeda yang memperlihatkan seluruh bagian paket, resi
+                                pengiriman, proses pembukaan, dan detail kondisi Produk saat pertama kali dibuka. Video
+                                ini merupakan syarat mutlak dan alat bukti utama. </li>
+                            <li>Produk dalam kondisi yang sama saat diterima (termasuk kemasan, aksesoris, tag label),
+                                bersih, dan belum dipergunakan.</li>
+                        </ol>
+                        <p>7.5 Penilaian AMANAH SEJAHTERA. AMANAH SEJAHTERA berhak untuk menilai kelayakan permohonan pengembalian
+                            berdasarkan bukti yang diterima. Keputusan AMANAH SEJAHTERA mengenai diterima atau ditolaknya
+                            pengembalian adalah MUTLAK, FINAL, DAN MENGIKAT.</p>
+                        <p>7.6 Biaya Pengembalian. Seluruh biaya pengiriman dalam proses pengembalian ditanggung oleh
+                            Pembeli, kecuali jika terbukti bahwa kesalahan sepenuhnya berasal dari AMANAH SEJAHTERA.</p>
+                        <p>7.7 Produk Non-Pengembalian. Ketentuan pengembalian tidak berlaku untuk Produk di bawah ini,
+                            kecuali dalam hal Produk rusak atau terjadi kesalahan pengiriman:</p>
+                        <ol>
+                            <li>Gadget dan Elektronik; </li>
+                            <li>Pakaian Dalam dan Pakaian Renang </li>
+                            <li>Produk Kecantikan dan Wewangian; </li>
+                            <li>Produk yang dibuat sesuai pesanan (Customized Product); </li>
+                            <li>Voucher Elektronik, Tiket, Reservasi Hotel, Tiket Pesawat, Tiket Konser, dan produk
+                                tidak berwujud lainnya.</li>
+                        </ol>
+                        <p>BAGIAN VIII – PENGEMBALIAN DANA (REFUND)</p>
+                        <p>8.1 Keadaan yang Memungkinkan Refund. Pengembalian dana hanya dapat dilakukan dalam keadaan:
+                        </p>
+                        <ol>
+                            <li>Kelebihan pembayaran dari Pembeli dan Pembeli sudah tidak memiliki tanggungan AMANAH SEJAHTERA
+                            </li>
+                            <li>AMANAH SEJAHTERA tidak dapat memenuhi pesanan karena stok habis atau alasan lain; </li>
+                            <li>Produk tidak terkirim kepada Pembeli atas alasan apapun yang bukan kesalahan Pembeli;
+                            </li>
+                            <li>Pengembalian Produk telah disetujui oleh AMANAH SEJAHTERA.</li>
+                        </ol>
+                        <p>8.2 Mekanisme Refund. Pengembalian dana akan dilakukan melalui transfer bank ke rekening
+                            pribadi Pembeli yang terdaftar. Kegagalan atau keterlambatan akibat kesalahan data rekening
+                            menjadi tanggung jawab Pembeli.</p>
+                        <p>8.3 Biaya Refund. Seluruh biaya terkait pengembalian dan akan dibebankan kepada Pembeli dan
+                            dipotong langsung dari dana yang dikembalikan. Selain itu, dalam hal terdapat dana yang
+                            dapat dikembalikan kepada Pengguna, jumlah pengembalian dana tidak termasuk Biaya Layanan
+                            Pembayaran, biaya transfer, biaya administrasi bank, biaya switching, dan/atau biaya lain
+                            yang timbul dari penggunaan kanal pembayaran, serta dapat dikurangi biaya administrasi
+                            pengembalian dana, denda, biaya tertunggak, dan/atau kewajiban lain Pengguna kepada AMANAH SEJAHTERA.
+                        </p>
+                        <p>8.4 Refund untuk Transaksi Cicilan. Jika terjadi refund untuk transaksi cicilan:</p>
+                        <ol>
+                            <li>AMANAH SEJAHTERA berhak untuk terlebih dahulu mengalokasikan dana refund untuk melunasi sisa
+                                kewajiban cicilan Pembeli (pokok, biaya, denda). </li>
+                            <li>Dana kelebihan (jika ada) setelah pelunasan kewajiban cicilan akan dikembalikan kepada
+                                Pembeli. </li>
+                            <li>Jika nilai refund lebih kecil dari biaya administrasi refund, Pembeli sepakat bahwa dana
+                                tidak dapat dikembalikan.</li>
+                        </ol>
+                        <p>8.5 Jangka Waktu Refund. Pengembalian dana akan diproses dalam 14 hari kerja sejak permohonan
+                            disetujui.</p>
+                        <p>BAGIAN IX – KETENTUAN PEMBATALAN</p>
+                        <p>9.1 Pembatalan oleh Pembeli. Sebelum Perjanjian Jual Beli terbentuk (sebelum Checkout
+                            selesai), Pembeli dapat membatalkan pesanan. Setelah Checkout selesai dan Perjanjian
+                            terbentuk, pesanan TIDAK DAPAT DIBATALKAN secara sepihak oleh Pembeli.</p>
+                        <p>9.2 Pembatalan oleh AMANAH SEJAHTERA. AMANAH SEJAHTERA berhak membatalkan pesanan sebelum status Dalam
+                            Pengiriman apabila:</p>
+                        <ol>
+                            <li>Produk yang dipesan tidak tersedia ; atau </li>
+                            <li>Terdapat indikasi kecurangan, manipulasi, atau pelanggaran hukum ; </li>
+                            <li>Terdapat hal-hal lain yang dirasa AMANAH SEJAHTERA perlu untuk membatalkan pesanan</li>
+                        </ol>
+                        <p>Dalam hal ini, dana yang telah dibayarkan akan dikembalikan sesuai ketentuan refund.</p>
+                        <p>9.3 Pembatalan Transaksi Curang. AMANAH SEJAHTERA memiliki hak dan kewenangan untuk membatalkan atau
+                            menahan pesanan apabila ditemukan adanya transaksi yang tidak sesuai dengan ketentuan yang
+                            berlaku, atau terdapat indikasi kecurangan, manipulasi, maupun upaya pelanggaran hukum tanpa
+                            memerlukan pemberitahuan terlebih dahulu.</p>
+                        <p>9.4 Gagal Kirim. Dalam hal pengiriman gagal karena Pembeli tidak berada di alamat atau tidak
+                            dapat dihubungi, Perjanjian Jual Beli tetap berlaku dan Pembeli tetap berkewajiban untuk
+                            menyelesaikan pembayaran.</p>
+                        <p>BAGIAN X – PERNYATAAN, JAMINAN, DAN TANGGUNG JAWAB PEMBELI</p>
+                        <p>Pembeli dengan ini menyatakan dan menjamin bahwa:</p>
+                        <p>10.1 Pembeli memiliki kapasitas hukum penuh dan kewenangan untuk mengikatkan diri dalam
+                            S&K ini dan setiap Perjanjian Jual Beli.</p>
+                        <p>10.2 Semua Data dan informasi yang diberikan adalah benar, akurat, lengkap, terkini, dan
+                            tidak menyesatkan.</p>
+                        <p>10.3 Pembeli adalah pemilik sah dari Data yang disampaikan.</p>
+                        <p>10.4 Tidak ada proses hukum yang sedang atau akan dijalankan terhadap Pembeli.</p>
+                        <p>10.5 Pembeli akan menggunakan Produk sesuai peruntukannya dan tidak akan melanggar hukum.</p>
+                        <p>BAGIAN XI – LARANGAN BAGI PEMBELI</p>
+                        <p>Selama kewajiban pembayaran kepada AMANAH SEJAHTERA (terutama untuk transaksi cicilan) belum lunas,
+                            Pembeli dilarang melakukan tindakan berikut tanpa persetujuan tertulis dari AMANAH SEJAHTERA:</p>
+                        <p>11.1 Memindahtangankan, menjual, menyewakan, atau mengalihkan kepemilikan Produk kepada pihak
+                            lain.</p>
+                        <p>11.2 Menjaminkan Produk sebagai agunan utang kepada pihak manapun.</p>
+                        <p>11.3 Mengubah identitas, domisili, atau data penting lainnya tanpa memberitahukan AMANAH SEJAHTERA.</p>
+                        <p>BAGIAN XII – PERISTIWA CIDERA JANJI (WANPRESTASI)</p>
+                        <p>Pembeli dinyatakan cidera janji apabila terjadi salah satu atau lebih hal-hal berikut:</p>
+                        <p>12.1 Pembeli tidak melakukan pembayaran angsuran tepat pada waktunya (tunggakan).<br>12.2
+                            Pembeli memberikan keterangan, data, atau dokumen palsu, dipalsukan, atau tidak benar.</p>
+                        <p>12.3 Pembeli melanggar salah satu ketentuan, larangan, atau jaminan dalam S&K ini.</p>
+                        <p>12.4 Pembeli meninggal dunia, dinyatakan pailit, atau berada di bawah pengampuan.</p>
+                        <p>12.5 Harta benda Pembeli, termasuk Produk, disita atau dieksekusi oleh pihak ketiga atau
+                            negara.</p>
+                        <p>12.6 Pembeli melakukan tindakan yang menurut penilaian AMANAH SEJAHTERA dapat membahayakan pelunasan
+                            kewajiban.</p>
+                        <p>BAGIAN XIII – AKIBAT HUKUM CIDERA JANJI</p>
+                        <p>Apabila Pembeli dinyatakan cidera janji, AMANAH SEJAHTERA berhak untuk melakukan satu, beberapa, atau
+                            seluruh tindakan berikut, tanpa memerlukan pemberitahuan atau persetujuan lebih lanjut, dan
+                            tanpa mengurangi hak AMANAH SEJAHTERA untuk menuntut ganti rugi lainnya:</p>
+                        <p>13.1 Menagih seketika dan sekaligus SELURUH SISA KEWAJIBAN PEMBELI (termasuk seluruh pokok
+                            angsuran yang belum jatuh tempo, denda, dan biaya-biaya lain) yang menjadi JATUH TEMPO
+                            SEGERA DAN HARUS DIBAYAR LUNAS.</p>
+                        <p>13.2 Menarik, mengambil alih, dan/atau menguasai kembali Produk yang menjadi objek
+                            Perjanjian, baik secara sukarela maupun dengan bantuan aparat penegak hukum, dan Pembeli
+                            dengan ini memberikan kuasa kepada AMANAH SEJAHTERA untuk melakukan hal tersebut.</p>
+                        <p>13.3 Membatasi, menangguhkan, menonaktifkan, atau menutup secara permanen Akun Pembeli.</p>
+                        <p>13.4 Melaporkan identitas, data, dan informasi Pembeli kepada sistem informasi kredit, biro
+                            kredit, lembaga pengelola data transaksi, dan/atau pihak berwenang lainnya.</p>
+                        <p>13.5 Menempuh upaya hukum lain melalui pengadilan atau di luar pengadilan.</p>
+                        <p>BAGIAN XIV – PEMBATASAN TANGGUNG JAWAB AMANAH SEJAHTERA</p>
+                        <p>14.1 PENAFIAN JAMINAN. LAYANAN, APLIKASI, DAN PRODUK DISEDIAKAN SEBAGAIMANA
+                            ADANYA (AS IS) DAN SEBAGAIMANA TERSEDIA (AS AVAILABLE) . AMANAH SEJAHTERA SECARA
+                            TEGAS MENYANGKAL SEMUA JAMINAN, BAIK TERSIRAT MAUPUN TERSURAT, TERMASUK JAMINAN DAPAT
+                            DIPERDAGANGKAN, KESESUAIAN UNTUK TUJUAN TERTENTU, DAN TIDAK MELANGGAR.</p>
+                        <p>14.2 BATASAN LIABILITAS. SEJAUH DIIZINKAN OLEH HUKUM, TANGGUNG JAWAB KUMULATIF AMANAH SEJAHTERA KEPADA
+                            PEMBELI, ATAS SEGALA KLAIM YANG BERHUBUNGAN DENGAN S&K INI ATAU PENGGUNAAN LAYANAN,
+                            TIDAK AKAN PERNAH MELEBIHI JUMLAH YANG TELAH DIBAYARKAN OLEH PEMBELI KEPADA AMANAH SEJAHTERA UNTUK
+                            TRANSAKSI SPESIFIK YANG MENJADI DASAR KLAIM TERSEBUT. DALAM HAL APAPUN, AMANAH SEJAHTERA TIDAK
+                            BERTANGGUNG JAWAB ATAS KERUGIAN TIDAK LANGSUNG, INSIDENTIAL, KHUSUS, KONSEKUENSIAL, ATAU
+                            KERUGIAN KEUNTUNGAN (LOST PROFITS).</p>
+                        <p>14.3 KERUGIAN PIHAK KETIGA. AMANAH SEJAHTERA tidak bertanggung jawab atas kerugian yang timbul akibat
+                            transaksi di luar Aplikasi atau komunikasi dengan pihak yang mengaku sebagai AMANAH SEJAHTERA di luar
+                            saluran resmi.</p>
+                        <p>BAGIAN XV – GANTI RUGI (INDEMNITAS)</p>
+                        <p>Pembeli dengan ini setuju untuk membebaskan, membela, dan mengganti rugi (indemnify and hold
+                            harmless) AMANAH SEJAHTERA, beserta direktur, komisaris, karyawan, dan afiliasinya, dari dan terhadap
+                            segala tuntutan, klaim, gugatan, kerugian, kewajiban, biaya, dan pengeluaran (termasuk biaya
+                            hukum yang wajar) yang timbul akibat atau sehubungan dengan:</p>
+                        <p>15.1 Pelanggaran Pembeli terhadap ketentuan S&K ini.</p>
+                        <p>15.2 Ketidakbenaran data, informasi, atau jaminan yang diberikan Pembeli.</p>
+                        <p>15.3 Penggunaan Produk oleh Pembeli yang melanggar hukum.</p>
+                        <p>15.4 Tindakan melawan hukum yang dilakukan Pembeli.</p>
+                        <p>BAGIAN XVI – JANGKA WAKTU DAN PENGAKHIRAN</p>
+                        <p>16.1 S&K ini berlaku sejak disetujui dan akan terus berlaku selama Pembeli menggunakan
+                            Layanan.</p>
+                        <p>16.2 Pembeli dapat mengakhiri dengan menutup Akun, dengan ketentuan tidak ada kewajiban
+                            finansial (cicilan, denda) yang masih terutang.</p>
+                        <p>16.3 AMANAH SEJAHTERA berhak mengakhiri atau menangguhkan akses Pembeli SEWAKTU-WAKTU, TANPA
+                            PEMBERITAHUAN, DAN TANPA TANGGUNG JAWAB, jika terjadi pelanggaran atau jika diwajibkan oleh
+                            hukum.</p>
+                        <p>16.4 Ketentuan dalam Pasal XIII (Akibat Cidera Janji), XIV (Pembatasan Tanggung Jawab), XV
+                            (Ganti Rugi), dan XVII (Penyelesaian Sengketa) tetap berlaku bahkan setelah S&K ini
+                            berakhir.</p>
+                        <p>16.5 Para Pihak setuju untuk mengesampingkan berlakunya ketentuan Pasal 1266 dan 1267 Kitab
+                            Undang-Undang Hukum Perdata, sehingga S&K ini dapat diakhiri atau hak-hak AMANAH SEJAHTERA dapat
+                            dilaksanakan tanpa memerlukan putusan pengadilan.</p>
+                        <p>BAGIAN XVII – PENYELESAIAN SENGKETA DAN HUKUM YANG BERLAKU</p>
+                        <p>17.1 Hukum yang Berlaku. S&K ini diatur dan ditafsirkan berdasarkan HUKUM NEGARA
+                            REPUBLIK INDONESIA.</p>
+                        <p>17.2 Musyawarah. Apabila timbul perselisihan, PARA PIHAK sepakat untuk menyelesaikannya
+                            terlebih dahulu secara musyawarah untuk mufakat dalam waktu 30 (tiga puluh) hari.</p>
+                        <p>17.3 Yurisdiksi Eksklusif. Jika musyawarah gagal, PARA PIHAK dengan ini memilih domisili
+                            hukum yang tetap dan tidak berubah di Kepaniteraan Pengadilan Negeri Surabaya , dan sepakat
+                            untuk menyelesaikan sengketa tersebut melalui Pengadilan Negeri tersebut.</p>
+                        <p>BAGIAN XVIII – KEADAAN KAHAR (FORCE MAJEURE)</p>
+                        <p>18.1 Keadaan Kahar adalah peristiwa di luar kendali PARA PIHAK, seperti bencana alam, perang,
+                            huru-hara, pemberontakan, epidemi, kebijakan pemerintah yang secara langsung menghambat
+                            pelaksanaan kewajiban, yang dinyatakan atau ditetapkan oleh instansi berwenang.</p>
+                        <p>18.2 Pihak yang mengalami Keadaan Kahar wajib memberitahukan secara tertulis dalam waktu 7
+                            (tujuh) hari disertai bukti pendukung. Keterlambatan pemberitahuan mengakibatkan gugurnya
+                            hak untuk menggunakan Keadaan Kahar sebagai pembelaan.</p>
+                        <p>18.3 Keadaan Kahar tidak membebaskan Pembeli dari kewajiban membayar angsuran yang telah
+                            jatuh tempo sebelum terjadinya Keadaan Kahar.</p>
+                        <p>BAGIAN XIX – TRANSAKSI DAN TANDA TANGAN ELEKTRONIK</p>
+                        <p>19.1 Penerimaan Elektronik. Pembeli setuju bahwa setiap korespondensi, pemberitahuan, dan
+                            dokumen sehubungan dengan Layanan dapat dilakukan secara elektronik.</p>
+                        <p>19.2 Keabsahan Tanda Tangan Elektronik. Pembeli dengan ini menyetujui bahwa TINDAKAN MENGKLIK
+                            TOMBOL SETUJU, CHECKOUT, BAYAR, ATAU TINDAKAN SEJENISNYA
+                            dalam Aplikasi AMANAH SEJAHTERA merupakan bentuk PERSETUJUAN DAN PENANDATANGANAN SECARA ELEKTRONIK
+                            yang sah.</p>
+                        <p>19.3 Tanda tangan elektronik tersebut memiliki kekuatan hukum dan akibat hukum yang sah,
+                            serta merupakan alat bukti yang sah di pengadilan, sebagaimana diatur dalam Undang-Undang
+                            Informasi dan Transaksi Elektronik (UU ITE).</p>
+                        <p>19.4 Pembeli dengan tegas melepaskan hak untuk mengajukan gugatan atau keberatan dengan
+                            alasan bahwa S&K ini atau Perjanjian Jual Beli tidak ditandatangani secara basah/fisik
+                            atau tidak dilegalisasi oleh notaris.</p>
+                        <p>19.5 Data elektronik yang terekam dalam sistem AMANAH SEJAHTERA merupakan bukti yang cukup mengenai
+                            terjadinya Perjanjian, isi Perjanjian, dan seluruh transaksi yang terkait.</p>
+                        <p>BAGIAN XX – LAIN-LAIN</p>
+                        <p>20.1 Hal-hal yang belum diatur akan diatur kemudian melalui kesepakatan tertulis PARA PIHAK.
+                        </p>
+                        <p>20.2 Setiap addendum hanya sah jika dibuat secara tertulis.</p>
+                        <p>20.3 Jika salah satu ketentuan dinyatakan tidak sah, ketentuan lainnya tetap berlaku
+                            sepenuhnya.</p>
+                        <p>20.4 Tidak ada pelepas hak (waiver) oleh AMANAH SEJAHTERA atas suatu pelanggaran, kecuali dinyatakan
+                            secara tertulis.</p>
+                        <p>20.5 Pembeli menyatakan telah membaca, memahami, dan menerima seluruh isi S&K ini dengan
+                            sukarela, tanpa tekanan dari pihak manapun.</p>
+                        <p>PERNYATAAN PERSETUJUAN AKHIR</p>
+                        <p>DENGAN MENGAKSES, MENDAFTAR, ATAU MENGGUNAKAN LAYANAN APLIKASI AMANAH SEJAHTERA, SAYA SECARA TEPAT
+                            MENYATAKAN BAHWA SAYA TELAH MEMBACA, MEMAHAMI, DAN MENYETUJUI UNTUK TERIKAT PADA SELURUH
+                            KETENTUAN DALAM DOKUMEN SYARAT DAN KETENTUAN PENGGUNAAN INI.</p>
+                    </div>
+
+                    <div id="terms-refund" class="content-card tab-content">
+                        <h1 id="kebijakan-pengembalian-produk-dan-dana-refund-policy-noriba">Kebijakan Pengembalian
+                            Produk dan Dana (Refund Policy) Amanah Sejahtera</h1>
+                        <p><strong>Terakhir diperbarui: 12/06/2026</strong><br>
+                            Kebijakan Pengembalian Produk dan Dana ("Refund Policy") ini mengatur tata cara pengembalian
+                            produk, pembatalan transaksi, pengembalian dana (refund), serta biaya-biaya yang terkait
+                            dengan transaksi pembelian melalui platform Amanah Sejahtera. Dengan melakukan transaksi melalui
+                            Amanah Sejahtera, Pengguna dianggap telah membaca, memahami, dan menyetujui seluruh ketentuan dalam
+                            kebijakan ini.</p>
+
+                        <hr>
+
+                        <h2 id="1-definisi">1. Definisi</h2>
+                        <p>Dalam kebijakan ini:</p>
+                        <ol>
+                            <li><strong>Amanah Sejahtera</strong> adalah platform pembiayaan dan pembelian barang berbasis syariah
+                                yang mempertemukan Pengguna dengan Penjual/Mitra.</li>
+                            <li><strong>Pembeli</strong> adalah pengguna yang melakukan transaksi pembelian barang
+                                melalui Amanah Sejahtera.</li>
+                            <li><strong>Penjual/Mitra</strong> adalah pihak yang menyediakan dan mengirimkan barang
+                                kepada Pembeli.</li>
+                            <li><strong>Refund</strong> adalah pengembalian dana kepada Pembeli atas transaksi yang
+                                memenuhi syarat.</li>
+                            <li><strong>Retur Produk</strong> adalah proses pengembalian barang dari Pembeli kepada
+                                Penjual/Mitra.</li>
+                        </ol>
+
+                        <hr>
+
+                        <h2 id="2-ketentuan-umum-pengembalian-produk">2. Ketentuan Umum Pengembalian Produk</h2>
+                        <p>Pembeli dapat mengajukan pengembalian produk apabila memenuhi salah satu kondisi berikut:</p>
+                        <ol type="a">
+                            <li><strong>Barang Tidak Sesuai Pesanan:</strong> Barang yang diterima berbeda secara
+                                material dari spesifikasi, jenis, ukuran, warna, atau merek yang tercantum pada saat
+                                transaksi.</li>
+                            <li><strong>Barang Rusak Saat Diterima:</strong> Barang mengalami kerusakan fisik yang bukan
+                                disebabkan oleh penggunaan Pembeli.</li>
+                            <li><strong>Barang Tidak Lengkap:</strong> Barang yang diterima tidak sesuai dengan
+                                kelengkapan yang dijanjikan.</li>
+                            <li><strong>Barang Tidak Dapat Digunakan:</strong> Barang mengalami cacat produksi atau
+                                kerusakan yang menyebabkan fungsi utama barang tidak dapat digunakan sebagaimana
+                                mestinya.</li>
+                        </ol>
+
+                        <hr>
+
+                        <h2 id="3-kondisi-yang-tidak-dapat-diretur">3. Kondisi yang Tidak Dapat Diretur</h2>
+                        <p>Pengajuan retur dapat ditolak apabila:</p>
+                        <ol>
+                            <li>Barang telah digunakan secara tidak wajar.</li>
+                            <li>Kerusakan terjadi akibat kelalaian atau kesalahan penggunaan oleh Pembeli.</li>
+                            <li>Kemasan, segel, atau aksesoris bawaan hilang tanpa alasan yang dapat dibuktikan.</li>
+                            <li>Pembeli mengajukan retur melebihi batas waktu yang ditentukan.</li>
+                            <li>Barang termasuk kategori yang secara umum tidak dapat dikembalikan sesuai ketentuan
+                                Penjual atau peraturan yang berlaku.</li>
+                            <li>Keluhan hanya berkaitan dengan perubahan preferensi pribadi setelah barang diterima.
+                            </li>
+                        </ol>
+
+                        <hr>
+
+                        <h2 id="4-batas-waktu-pengajuan-retur">4. Batas Waktu Pengajuan Retur</h2>
+                        <ol>
+                            <li>Pembeli wajib mengajukan keluhan paling lambat <strong>3 (tiga) hari kalender</strong>
+                                sejak barang diterima.</li>
+                            <li>Pengajuan setelah batas waktu tersebut dapat ditolak kecuali diwajibkan lain oleh
+                                peraturan perundang-undangan yang berlaku.</li>
+                            <li>Amanah Sejahtera berhak meminta bukti berupa foto, video, atau dokumen pendukung lainnya untuk
+                                proses verifikasi.</li>
+                        </ol>
+
+                        <hr>
+
+                        <h2 id="5-proses-pengajuan-retur-produk">5. Proses Pengajuan Retur Produk</h2>
+                        <ol>
+                            <li>Pembeli mengajukan permohonan melalui aplikasi, website, atau kanal layanan pelanggan
+                                Amanah Sejahtera.</li>
+                            <li>Pembeli wajib menyampaikan:
+                                <ol type="a">
+                                    <li>Nomor transaksi;</li>
+                                    <li>Deskripsi kendala;</li>
+                                    <li>Foto atau video pendukung;</li>
+                                    <li>Data pendukung lain yang diminta.</li>
+                                </ol>
+                            </li>
+                            <li>Amanah Sejahtera dan/atau Penjual akan melakukan verifikasi atas pengajuan tersebut.</li>
+                            <li>Apabila disetujui, Pembeli akan menerima instruksi pengembalian barang.</li>
+                            <li>Barang wajib dikirim kembali sesuai petunjuk yang diberikan.</li>
+                            <li>Setelah barang diterima dan diverifikasi, Amanah Sejahtera atau Penjual akan menentukan
+                                penyelesaian berupa:
+                                <ol type="a">
+                                    <li>Penggantian barang;</li>
+                                    <li>Perbaikan barang;</li>
+                                    <li>Pengembalian dana sesuai ketentuan yang berlaku.</li>
+                                </ol>
+                            </li>
+                        </ol>
+
+                        <hr>
+
+                        <h2 id="6-biaya-pengiriman-retur">6. Biaya Pengiriman Retur</h2>
+
+                        <h3 id="a-kesalahan-penjual-atau-mitra">a. Kesalahan Penjual atau Mitra</h3>
+                        <p>Apabila retur disebabkan oleh:</p>
+                        <ol>
+                            <li>Barang rusak</li>
+                            <li>Barang tidak sesuai pesanan</li>
+                            <li>Barang cacat produksi</li>
+                            <li>Kesalahan pengiriman</li>
+                        </ol>
+                        <p>maka biaya pengiriman retur dapat ditanggung oleh Penjual atau pihak yang ditunjuk sesuai
+                            hasil verifikasi.</p>
+
+                        <h3 id="b-permintaan-pembeli">b. Permintaan Pembeli</h3>
+                        <p>Apabila retur terjadi karena alasan pribadi Pembeli yang disetujui oleh Penjual, seluruh
+                            biaya pengiriman dan biaya terkait menjadi tanggung jawab Pembeli.</p>
+
+                        <hr>
+
+                        <h2 id="7-kebijakan-pengembalian-dana-refund">7. Kebijakan Pengembalian Dana (Refund)</h2>
+
+                        <h3 id="7-1-kelebihan-pembayaran-angsuran">7.1 Kelebihan Pembayaran Angsuran</h3>
+                        <p>Apabila PEMBELI melakukan pembayaran yang melebihi jumlah angsuran yang jatuh tempo pada
+                            suatu bulan tertentu, maka kelebihan pembayaran tersebut akan secara otomatis dialokasikan
+                            oleh AMANAH SEJAHTERA untuk pembayaran angsuran bulan berikutnya (pokok, biaya, dan/atau denda jika
+                            ada), tanpa perlu pemberitahuan atau persetujuan lebih lanjut dari PEMBELI.</p>
+
+                        <h3 id="7-2-hak-pengajuan-refund">7.2 Hak Pengajuan Refund</h3>
+                        <p>Dalam hal seluruh kewajiban cicilan PEMBELI telah lunas dan masih terdapat sisa kelebihan
+                            pembayaran setelah dilakukan alokasi sebagaimana dimaksud pada Pasal 7.1, maka PEMBELI
+                            berhak mengajukan permohonan refund atas sisa dana tersebut.</p>
+
+                        <h3 id="7-3-syarat-pengajuan-refund">7.3 Syarat Pengajuan Refund</h3>
+                        <p>Permohonan refund wajib memenuhi ketentuan berikut:</p>
+                        <ol>
+                            <li>Diajukan melalui mekanisme yang tersedia pada aplikasi atau layanan pelanggan Amanah Sejahtera.
+                            </li>
+                            <li>Disertai data rekening bank atas nama PEMBELI yang masih aktif dan valid.</li>
+                            <li>Tidak sedang dalam proses sengketa, investigasi fraud, atau pemeriksaan kepatuhan.</li>
+                            <li>Data identitas dan rekening penerima sesuai dengan data yang terdaftar pada akun Amanah Sejahtera.
+                            </li>
+                        </ol>
+
+                        <hr>
+
+                        <h2 id="8-biaya-administrasi-refund">8. Biaya Administrasi Refund</h2>
+                        <ol>
+                            <li>Setiap pengajuan refund yang disetujui akan dikenakan <strong>biaya administrasi sebesar
+                                    Rp10.000 (sepuluh ribu Rupiah)</strong>.</li>
+                            <li>Biaya administrasi akan dipotong langsung dari nominal dana yang akan dikembalikan.</li>
+                            <li>Biaya administrasi tersebut digunakan untuk menutup biaya operasional verifikasi,
+                                administrasi, dan transfer dana.</li>
+                        </ol>
+
+                        <h3 id="ketentuan-nominal-refund-kecil">Ketentuan Nominal Refund Kecil</h3>
+                        <p>Apabila setelah dipotong biaya administrasi sebagaimana dimaksud di atas nilai refund menjadi
+                            <strong>Rp0 (nol Rupiah)</strong> atau lebih kecil dari biaya administrasi yang berlaku,
+                            maka:
+                        </p>
+                        <ol>
+                            <li>PEMBELI menyatakan setuju bahwa sisa dana tersebut dianggap habis untuk biaya
+                                operasional</li>
+                            <li>Dana tersebut tidak dapat dituntut pengembaliannya di kemudian hari</li>
+                            <li>AMANAH SEJAHTERA tidak berkewajiban melakukan transfer dana dengan nominal negatif atau nol
+                                Rupiah.</li>
+                        </ol>
+
+                        <hr>
+
+                        <h2 id="9-biaya-yang-tidak-dapat-dikembalikan">9. Biaya yang Tidak Dapat Dikembalikan</h2>
+                        <p>Dalam hal terjadi kelebihan pembayaran, pembatalan transaksi, pengembalian barang,
+                            pengakhiran perjanjian, pelunasan dipercepat, atau kondisi lain yang mengakibatkan adanya
+                            dana yang dapat dikembalikan kepada PEMBELI, maka PARA PIHAK sepakat bahwa komponen biaya
+                            berikut bersifat final dan tidak dapat dimintakan pengembalian:</p>
+                        <ol>
+                            <li>Biaya layanan pembayaran;</li>
+                            <li>Biaya transfer antarbank;</li>
+                            <li>Biaya payment gateway;</li>
+                            <li>Biaya administrasi transaksi;</li>
+                            <li>Biaya kanal pembayaran;</li>
+                            <li>Biaya pihak ketiga;</li>
+                            <li>Biaya lain yang telah dibayarkan kepada pihak eksternal untuk memproses transaksi.</li>
+                        </ol>
+                        <p>Pengecualian hanya berlaku apabila pengembalian diwajibkan berdasarkan peraturan
+                            perundang-undangan yang berlaku.</p>
+
+                        <hr>
+
+                        <h2 id="10-waktu-proses-refund">10. Waktu Proses Refund</h2>
+                        <ol>
+                            <li>Setelah seluruh dokumen dan persyaratan dinyatakan lengkap, proses refund akan dilakukan
+                                paling lambat <strong>14 (empat belas) Hari Kerja</strong>.</li>
+                            <li>Keterlambatan yang disebabkan oleh sistem perbankan, pihak ketiga, atau keadaan di luar
+                                kendali Amanah Sejahtera tidak menjadi tanggung jawab Amanah Sejahtera.</li>
+                            <li>Dana dianggap telah dikembalikan sejak berhasil ditransfer ke rekening yang diberikan
+                                oleh Pembeli.</li>
+                        </ol>
+
+                        <hr>
+
+                        <h2 id="11-penolakan-refund">11. Penolakan Refund</h2>
+                        <p>Amanah Sejahtera berhak menolak permohonan refund apabila:</p>
+                        <ol>
+                            <li>Data rekening tidak valid.</li>
+                            <li>Ditemukan indikasi penyalahgunaan sistem, penipuan, atau aktivitas yang melanggar hukum.
+                            </li>
+                            <li>Permohonan tidak memenuhi persyaratan yang ditetapkan.</li>
+                            <li>Dana yang dimohonkan bukan merupakan kelebihan pembayaran yang sah.</li>
+                            <li>Pengguna memiliki kewajiban atau tunggakan yang belum diselesaikan.</li>
+                        </ol>
+
+                        <hr>
+
+                        <h2 id="12-penggunaan-jasa-pihak-ketiga">12. Penggunaan Jasa Pihak Ketiga</h2>
+                        <p>Amanah Sejahtera bekerja sama dengan berbagai pihak ketiga, termasuk namun tidak terbatas pada penyedia
+                            pembayaran, perbankan, jasa logistik, dan mitra penjual. Oleh karena itu, waktu penyelesaian
+                            retur maupun refund dapat dipengaruhi oleh proses operasional pihak-pihak tersebut yang
+                            berada di luar kendali Amanah Sejahtera.</p>
+
+                        <hr>
+
+                        <h2 id="13-perubahan-kebijakan">13. Perubahan Kebijakan</h2>
+                        <p>Amanah Sejahtera berhak melakukan perubahan terhadap Kebijakan Pengembalian Produk dan Dana ini
+                            sewaktu-waktu sesuai kebutuhan operasional, perkembangan bisnis, maupun perubahan peraturan
+                            perundang-undangan yang berlaku. Perubahan akan diumumkan melalui website atau aplikasi
+                            Amanah Sejahtera dan berlaku sejak tanggal dipublikasikan.</p>
+
+                        <hr>
+
+                        <p><strong>Layanan Bantuan Amanah Sejahtera</strong><br>
+                            Apabila terdapat pertanyaan terkait retur produk atau refund dana, silakan menghubungi
+                            layanan pelanggan Amanah Sejahtera melalui kanal resmi yang tersedia pada website dan aplikasi Amanah Sejahtera.
+                        </p>
+
+                    </div>
+
+                    <div id="terms-delivery" class="content-card tab-content">
+                        <h1 id="delivery-policy">Delivery Policy</h1>
+                        <p><strong>Terakhir diperbarui: 12/06/2026</strong><br>
+                            Amanah Sejahtera berkomitmen untuk memastikan setiap pesanan pelanggan diproses dan dikirimkan sesuai
+                            dengan
+                            ketentuan yang berlaku. Kebijakan Pengiriman ini mengatur proses pengiriman barang yang
+                            dibeli
+                            melalui platform Amanah Sejahtera.</p>
+
+                        <h2 id="1-cakupan-pengiriman">1. Cakupan Pengiriman</h2>
+                        <p>Amanah Sejahtera melayani pengiriman barang ke berbagai wilayah di Indonesia melalui mitra penjual,
+                            supplier,
+                            dan perusahaan jasa logistik yang bekerja sama dengan Amanah Sejahtera.
+                            Ketersediaan layanan pengiriman dapat berbeda pada setiap wilayah sesuai dengan jangkauan
+                            layanan
+                            perusahaan jasa logistik.</p>
+
+                        <h2 id="2-proses-pemesanan">2. Proses Pemesanan</h2>
+                        <ol>
+                            <li>Pelanggan mengajukan pembelian barang melalui platform Amanah Sejahtera.</li>
+                            <li>Pengajuan akan melalui proses verifikasi dan persetujuan sesuai ketentuan yang berlaku.
+                            </li>
+                            <li>Setelah pengajuan disetujui, Amanah Sejahtera akan melakukan proses pengadaan barang kepada
+                                supplier atau
+                                mitra penjual.</li>
+                            <li>Barang yang telah tersedia akan diproses untuk pengiriman ke alamat pelanggan.</li>
+                        </ol>
+
+                        <h2 id="3-waktu-pemrosesan-pesanan">3. Waktu Pemrosesan Pesanan</h2>
+                        <ol>
+                            <li>Pesanan diproses pada hari kerja Senin sampai Jumat, kecuali hari libur nasional.</li>
+                            <li>Waktu pemrosesan pesanan umumnya membutuhkan 1–3 hari kerja setelah pengajuan disetujui.
+                            </li>
+                            <li>Dalam kondisi tertentu, seperti keterbatasan stok, peningkatan volume pesanan, atau
+                                kendala
+                                operasional, waktu pemrosesan dapat memerlukan waktu lebih lama.</li>
+                        </ol>
+
+                        <h2 id="4-penggunaan-jasa-logistik-pihak-ketiga">4. Penggunaan Jasa Logistik Pihak Ketiga</h2>
+                        <p>Amanah Sejahtera menggunakan layanan perusahaan jasa logistik atau ekspedisi pihak ketiga yang
+                            beroperasi
+                            secara independen untuk melakukan pengiriman barang kepada pelanggan.
+                            Setelah barang diserahkan kepada perusahaan jasa logistik, proses pengiriman sepenuhnya
+                            berada dalam
+                            tanggung jawab operasional perusahaan jasa logistik tersebut sesuai dengan syarat dan
+                            ketentuan yang
+                            berlaku pada masing-masing penyedia layanan.
+                            Amanah Sejahtera tidak memiliki kendali langsung atas proses pengiriman yang dilakukan oleh pihak jasa
+                            logistik, termasuk namun tidak terbatas pada:</p>
+                        <ol>
+                            <li>Keterlambatan pengiriman.</li>
+                            <li>Perubahan jadwal pengiriman.</li>
+                            <li>Kendala operasional ekspedisi.</li>
+                            <li>Kondisi lalu lintas atau akses wilayah tertentu.</li>
+                            <li>Cuaca buruk atau bencana alam.</li>
+                            <li>Keadaan kahar (force majeure).</li>
+                            <li>Kehilangan atau kerusakan yang terjadi selama proses pengiriman.</li>
+                        </ol>
+                        <p>Meskipun demikian, Amanah Sejahtera akan membantu pelanggan melakukan koordinasi dan pelacakan
+                            pengiriman
+                            berdasarkan informasi yang tersedia dari perusahaan jasa logistik.</p>
+
+                        <h2 id="5-estimasi-waktu-pengiriman">5. Estimasi Waktu Pengiriman</h2>
+                        <p>Estimasi waktu pengiriman dihitung sejak barang diterima oleh perusahaan jasa logistik.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Wilayah Tujuan</th>
+                                    <th>Estimasi Pengiriman</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Jawa</td>
+                                    <td>1 – 5 Hari Kerja</td>
+                                </tr>
+                                <tr>
+                                    <td>Bali, Sumatera, Kalimantan</td>
+                                    <td>2 – 7 Hari Kerja</td>
+                                </tr>
+                                <tr>
+                                    <td>Sulawesi, Nusa Tenggara, Maluku, Papua</td>
+                                    <td>3 – 14 Hari Kerja</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Estimasi tersebut merupakan perkiraan dan dapat berubah sewaktu-waktu sesuai kondisi
+                            operasional jasa
+                            logistik.
+                            Amanah Sejahtera tidak memberikan jaminan waktu pengiriman tertentu karena proses pengiriman berada di
+                            luar
+                            kendali Amanah Sejahtera.</p>
+                        <h2 id="6-biaya-pengiriman">6. Biaya Pengiriman</h2>
+                        <ol>
+                            <li>Biaya pengiriman akan diinformasikan kepada pelanggan sebelum transaksi diselesaikan.
+                            </li>
+                            <li>Besaran biaya pengiriman mengikuti tarif yang ditetapkan oleh perusahaan jasa logistik
+                                atau
+                                supplier.</li>
+                            <li>Biaya tambahan yang timbul akibat perubahan alamat atau permintaan khusus dapat menjadi
+                                tanggung
+                                jawab pelanggan.</li>
+                        </ol>
+
+                        <h2 id="7-alamat-pengiriman">7. Alamat Pengiriman</h2>
+                        <p>Pelanggan wajib memastikan bahwa data pengiriman yang diberikan telah benar dan lengkap,
+                            meliputi:
+                        </p>
+                        <ol>
+                            <li>Nama penerima.</li>
+                            <li>Nomor telepon aktif.</li>
+                            <li>Alamat lengkap.</li>
+                            <li>Kelurahan/Desa.</li>
+                            <li>Kecamatan.</li>
+                            <li>Kota/Kabupaten.</li>
+                            <li>Provinsi.</li>
+                            <li>Kode Pos.</li>
+                        </ol>
+                        <p>Amanah Sejahtera tidak bertanggung jawab atas keterlambatan atau kegagalan pengiriman yang disebabkan
+                            oleh
+                            kesalahan data yang diberikan oleh pelanggan.</p>
+
+                        <h2 id="8-informasi-pelacakan-pengiriman">8. Informasi Pelacakan Pengiriman</h2>
+                        <p>Apabila tersedia, Amanah Sejahtera akan memberikan informasi pengiriman berupa:</p>
+                        <ol>
+                            <li>Nomor resi.</li>
+                            <li>Nama perusahaan jasa logistik.</li>
+                            <li>Status pengiriman.</li>
+                        </ol>
+                        <p>Informasi pelacakan yang ditampilkan berasal dari sistem perusahaan jasa logistik dan dapat
+                            berubah
+                            sewaktu-waktu sesuai pembaruan yang diberikan oleh pihak tersebut.</p>
+
+                        <h2 id="9-penerimaan-barang">9. Penerimaan Barang</h2>
+                        <p>Pada saat menerima barang, pelanggan disarankan untuk:</p>
+                        <ol>
+                            <li>Memeriksa kondisi kemasan.</li>
+                            <li>Memastikan barang sesuai dengan pesanan yang diajukan.</li>
+                            <li>Mendokumentasikan kondisi paket sebelum dibuka apabila terdapat indikasi kerusakan.</li>
+                        </ol>
+                        <p>Barang dianggap telah diterima dengan baik apabila telah diterima oleh pelanggan atau pihak
+                            yang
+                            berada di alamat tujuan yang ditunjuk oleh pelanggan.</p>
+
+                        <h2 id="10-barang-rusak-hilang-atau-tidak-sesuai">10. Barang Rusak, Hilang, atau Tidak Sesuai
+                        </h2>
+                        <p>Apabila pelanggan menerima barang yang rusak, tidak lengkap, hilang, atau tidak sesuai dengan
+                            pesanan, pelanggan wajib melaporkan kepada Amanah Sejahtera paling lambat <strong>2 x 24 jam</strong>
+                            sejak
+                            barang diterima dengan melampirkan:</p>
+                        <ol>
+                            <li>Nomor pesanan.</li>
+                            <li>Foto kemasan.</li>
+                            <li>Foto barang.</li>
+                            <li>Bukti pendukung lainnya yang relevan.</li>
+                        </ol>
+                        <p>Amanah Sejahtera akan melakukan verifikasi dan berkoordinasi dengan supplier maupun perusahaan jasa
+                            logistik
+                            untuk menentukan tindak lanjut yang sesuai.</p>
+
+                        <h2 id="11-keterlambatan-pengiriman">11. Keterlambatan Pengiriman</h2>
+                        <p>Amanah Sejahtera tidak bertanggung jawab atas keterlambatan pengiriman yang disebabkan oleh:</p>
+                        <ol>
+                            <li>Kondisi cuaca.</li>
+                            <li>Bencana alam.</li>
+                            <li>Gangguan operasional jasa logistik.</li>
+                            <li>Pembatasan atau kebijakan pemerintah.</li>
+                            <li>Kondisi keamanan wilayah.</li>
+                            <li>Force majeure atau keadaan di luar kendali Amanah Sejahtera.</li>
+                        </ol>
+                        <p>Dalam hal terjadi keterlambatan, Amanah Sejahtera akan membantu pelanggan memperoleh informasi status
+                            pengiriman berdasarkan data yang tersedia.</p>
+
+                        <h2 id="12-batas-tanggung-jawab-noriba">12. Batas Tanggung Jawab Amanah Sejahtera</h2>
+                        <p>Amanah Sejahtera bertanggung jawab untuk:</p>
+                        <ol>
+                            <li>Memproses pengajuan pelanggan sesuai prosedur yang berlaku.</li>
+                            <li>Melakukan pengadaan barang kepada supplier atau mitra penjual.</li>
+                            <li>Memastikan barang diserahkan kepada perusahaan jasa logistik untuk dikirimkan kepada
+                                pelanggan.
+                            </li>
+                            <li>Membantu koordinasi apabila terjadi kendala pengiriman.</li>
+                        </ol>
+                        <p>Amanah Sejahtera tidak bertanggung jawab atas kerugian yang timbul akibat tindakan, kelalaian, atau
+                            gangguan
+                            operasional yang terjadi pada perusahaan jasa logistik, sepanjang barang telah diserahkan
+                            kepada
+                            perusahaan jasa logistik untuk dilakukan pengiriman.</p>
+
+                        <h2 id="13-perubahan-kebijakan">13. Perubahan Kebijakan</h2>
+                        <p>Amanah Sejahtera berhak mengubah Kebijakan Pengiriman ini sewaktu-waktu sesuai kebutuhan operasional
+                            maupun
+                            perubahan peraturan yang berlaku. Setiap perubahan akan dipublikasikan melalui website atau
+                            aplikasi
+                            Amanah Sejahtera.</p>
+
+                        <h2 id="14-hubungi-kami">14. Hubungi Kami</h2>
+                        <p>Apabila Anda memiliki pertanyaan terkait pengiriman barang, silakan menghubungi layanan
+                            pelanggan
+                            Amanah Sejahtera melalui kanal resmi yang tersedia pada website maupun aplikasi Amanah Sejahtera.</p>
+                        <hr>
+                        <p><strong>Dengan melakukan transaksi melalui platform Amanah Sejahtera, pelanggan dianggap telah membaca,
+                                memahami, dan menyetujui Kebijakan Pengiriman ini.</strong></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>
+                        <img src="favicon.png" alt="Amanah Sejahtera Logo"
+                            style="width: 44px; height: 44px; border-radius: 10px;">
+                        Amanah Sejahtera
+                    </h3>
+                    <p>Platform jual beli barang tunai atau tempo yang adil, transparan dan fleksibel. Bagian dari
+                        ekosistem VisiCloud (PT Visi Rahmat Teknologi).</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Bantuan</h4>
+                    <ul>
+                        <li><a href="#">Cara Pakai</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Hubungi Kami</h4>
+                    <div class="contact-item">office@visicloud.id</div>
+                    <div class="contact-item">08123456789</div>
+                    <div class="contact-item">PONDOK WAGE INDAH II, Kelurahan Wage, Kec. Taman, Kab. Sidoarjo, Provinsi
+                        Jawa Timur</div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Amanah Sejahtera - PT Visi Rahmat Teknologi. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showContent(event, tabId) {
+            event.preventDefault();
+            // Remove active class from all nav links
+            document.querySelectorAll('.terms-nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            // Add active class to clicked link
+            event.currentTarget.classList.add('active');
+
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+
+            // Update URL hash without scrolling
+            history.pushState(null, null, '#' + tabId);
+        }
+
+        // Handle direct link with hash
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash)) {
+                const link = document.querySelector(`.terms-nav a[href="#${hash}"]`);
+                if (link) {
+                    link.click();
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
